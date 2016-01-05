@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Error Message</title>
+</head>
+<body>
+    <div>Open console with F12</div>
+    <div class="spinner">En chargement...</div>
+<script src="./javascript/common.js"></script>
+<script>
+"use strict";
+
+var getJSON = this.getJSON,
+    addHtmlToPage = this.addHtmlToPage;
+
+// Echec
+getJSON('datas/book2.json').then(function (story) {
+    return getJSON('datas/book2.json');
+}).then(function (chapter1) {
+    addHtmlToPage(chapter1.content);
+}).catch(function () {
+    addHtmlToPage("L’affichage du chapitre a échoué");
+}).then(function () {
+    document.querySelector('.spinner').style.display = 'none';
+});
+
+// Ok
+getJSON('datas/book.json').then(function (story) {
+    return getJSON(story.chapters[0]);
+}).then(function (chapter1) {
+    addHtmlToPage(chapter1.content);
+}).catch(function () {
+    addHtmlToPage("L’affichage du chapitre a échoué");
+}).then(function () {
+    document.querySelector('.spinner').style.display = 'none';
+});
+
+/*try {
+    var story = getJSONSync('story.json');
+    var chapter1 = getJSONSync(story.chapters[0]);
+    addHtmlToPage(chapter1.content);
+} catch (e) {
+    addHtmlToPage("L’affichage du chapitre a échoué");
+}
+document.querySelector('.spinner').style.display = 'none';*/
+
+// Echec
+getJSON('datas/book.json').then(function (story) {
+    return getJSON('datas/book2.json');
+}).then(function (chapter1) {
+    addHtmlToPage(chapter1.content);
+}).catch(function () {
+    addHtmlToPage("L’affichage du chapitre a échoué");
+}).then(function () {
+    document.querySelector('.spinner').style.display = 'none';
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chain Test</title>
+</head>
+<body>
+    Open console with F12
+<script src="./javascript/common.js"></script>
+<script>
+"use strict";
+
+var getJSON = this.getJSON,
+    storyPromise;
+
+getJSON('datas/book.json').then(function (book) {
+    return getJSON(book.chapters[0]);
+}).then(function (chapter1) {
+    console.log("J’ai le chapitre 1 !", chapter1);
+});
+
+function getChapter(i) {
+    storyPromise = storyPromise || getJSON('datas/book.json');
+
+    return storyPromise.then(function (story) {
+        return getJSON(story.chapters[i]);
+    });
+}
+
+// et c’est facile à utiliser :
+getChapter(0).then(function (chapter) {
+    console.log(chapter);
+    return getChapter(1);
+}).then(function (chapter) {
+    console.log(chapter);
+    return getChapter(2);
+}).then(function (chapter) {
+    console.log(chapter);
+});
+</script>
+</body>
+</html>

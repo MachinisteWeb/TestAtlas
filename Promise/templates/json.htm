@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Test</title>
+</head>
+<body>
+    Open console with F12
+<script src="./javascript/common.js"></script>
+<script>
+"use strict";
+
+var get = this.get,
+    getJSON = this.getJSON;
+
+get('datas/book.json').then(function (response) {
+    return JSON.parse(response);
+}).then(function (response) {
+    console.log("Ouais du JSON !", response);
+}).catch(function (response) {
+    console.log("Merde une erreur", response);
+});
+
+get('datas/book2.json').then(function (response) {
+    return JSON.parse(response);
+}).then(function (response) {
+    console.log("Ouais du JSON !", response);
+}).catch(function (response) {
+    console.log("Merde une erreur", response);
+});
+
+get('datas/book.json').then(JSON.parse).then(function (response) {
+    console.log("Ouais du JSON !", response);
+});
+get('datas/book.json').then(JSON.parse).then(console.log).catch(function (response) {
+    console.log("Merde une erreur", response);
+});
+
+getJSON('datas/book.json').then(function (response) {
+    console.log("Ouais du JSON avec GetJSON !", response);
+});
+</script>
+</body>
+</html>

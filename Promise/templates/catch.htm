@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Catch Test</title>
+</head>
+<body>
+    Open console with F12
+<script src="./javascript/common.js"></script>
+<script>
+"use strict";
+
+var Promise = this.Promise,
+    asyncThing1 = function (value) {
+        return new Promise(function (resolve, reject) {
+            // Faire des truc.
+            if (value) {
+                resolve("Yeah !");
+            } else {
+                reject(new Error("Et merde"));
+            }
+        });
+    },
+    asyncThing2 = asyncThing1,
+    asyncThing3 = asyncThing2,
+    asyncThing4 = asyncThing3,
+    asyncRecovery1 = asyncThing1,
+    asyncRecovery2 = asyncRecovery1;
+
+asyncThing1(true).then(function (value) {
+    console.log("asyncThing1: " + value);
+    return asyncThing2(true);
+}).then(function (value) {
+    console.log("asyncThing2: " + value);
+    return asyncThing3(false);
+}).catch(function (err) {
+    console.log("asyncThing error:", err);
+    return asyncRecovery1(true);
+}).then(function (value) {
+    console.log("asyncRecovery1: " + value);
+    return asyncThing4(false);
+}, function (err) {
+    console.log("asyncThing error:", err);
+    return asyncRecovery2(true);
+}).catch(function (err) {
+    console.log("asyncThing error:", err);
+    console.log("T’inquiète donc pas");
+}).then(function () {
+    console.log("Tout fini !");
+});
+
+// Sans le Timeout, les deux console.log vont se mélanger.
+setTimeout(function () {
+
+    console.log("============");
+    asyncThing1(false).then(function (value) {
+        console.log("asyncThing1: " + value);
+        return asyncThing2(true);
+    }).then(function (value) {
+        console.log("asyncThing2: " + value);
+        return asyncThing3(false);
+    }).catch(function (err) {
+        console.log("asyncThing error:", err);
+        return asyncRecovery1(true);
+    }).then(function (value) {
+        console.log("asyncRecovery1: " + value);
+        return asyncThing4(true);
+    }, function (err) {
+        console.log("asyncThing error:", err);
+        return asyncRecovery2(true);
+    }).catch(function (err) {
+        console.log("asyncThing error:", err);
+        console.log("T’inquiète donc pas");
+    }).then(function () {
+        console.log("Tout fini !");
+    });
+
+}, 2000);
+</script>
+</body>
+</html>

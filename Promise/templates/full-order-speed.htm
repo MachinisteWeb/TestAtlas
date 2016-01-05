@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Full example full order</title>
+</head>
+<body>
+    <div>Open console with F12</div>
+    <div class="spinner">En chargement...</div>
+<script src="./javascript/common.js"></script>
+<script>
+"use strict";
+
+var getJSON = this.getJSON,
+    addHtmlToPage = this.addHtmlToPage,
+    Promise = this.Promise;
+
+// Not in good order.
+getJSON('datas/book.json').then(function (story) {
+
+    addHtmlToPage(story.title);
+
+    /*return story.chapters.reduce(function (sequence, chapter) {
+        // Une fois la promesse du dernier chapitre terminée…
+        return sequence.then(function () {
+            // …récupérer le prochain chapitre
+            return getJSON(chapter);
+        }).then(function (chapter) {
+            // …et l’ajouter à la page
+            addHtmlToPage(chapter.content);
+        });
+    }, Promise.resolve());*/
+
+    // Prends un tableau de promesses et attend-les
+    return Promise.all(
+        // Convertis les URLs de chapitres en
+        // un tableau de promesses de JSON de chapitre
+        story.chapters.map(getJSON)
+        //[getJSON(story.chapters[0]), getJSON(story.chapters[1]), getJSON(story.chapters[2]), getJSON(story.chapters[3]), getJSON(story.chapters[4]), getJSON(story.chapters[5])]
+    );
+}).then(function (chapters) {
+    // Et on a tout fini !
+    chapters.forEach(function (chapter) {
+        // …et on les ajoute à la page
+        addHtmlToPage(chapter.content);
+    });
+}).then(function () {
+    // Et on a tout fini !
+    addHtmlToPage("<div>Tout fini !</div>");
+}).catch(function (err) {
+    // Récupère toute erreur survenue en chemin
+    addHtmlToPage("Argh, cassé : " + err.message);
+}).then(function () {
+    // Toujours masquer le spinner
+    document.querySelector('.spinner').style.display = 'none';
+});
+</script>
+</body>
+</html>

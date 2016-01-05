@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Full example unorder</title>
+</head>
+<body>
+    <div>Open console with F12</div>
+    <div class="spinner">En chargement...</div>
+<script src="./javascript/common.js"></script>
+<script>
+"use strict";
+
+var getJSON = this.getJSON,
+    addHtmlToPage = this.addHtmlToPage;
+
+// N'est pas rendu dans le bon ordre.
+getJSON('datas/book.json').then(function (story) {
+    addHtmlToPage(story.title);
+
+    story.chapters.forEach(function (chapter) {
+        // Récupère le chapitre
+        getJSON(chapter).then(function (chapter) {
+            // et ajoute-le à la page
+            addHtmlToPage(chapter.content);
+        });
+    });
+}).then(function () {
+    // Et on a tout fini !
+    addHtmlToPage("<div>Tout fini !</div>");
+}).catch(function (err) {
+    // Récupère toute erreur survenue en chemin
+    addHtmlToPage("Argh, cassé : " + err.message);
+}).then(function () {
+    // Toujours masquer le spinner
+    document.querySelector('.spinner').style.display = 'none';
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+	"title": "This is the Book Title",
+	"chapters": [
+		"datas/chapter1.json",
+		"datas/chapter2.json",
+		"datas/chapter3.json",
+		"datas/chapter4.json",
+		"datas/chapter5.json",
+		"datas/chapter6.json"
+	]
+}

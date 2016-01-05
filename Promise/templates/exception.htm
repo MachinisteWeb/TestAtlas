@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exception Test</title>
+</head>
+<body>
+    Open console with F12
+<script src="./javascript/common.js"></script>
+<script>
+"use strict";
+
+var Promise = this.Promise,
+    get = this.get,
+    jsonPromise = new Promise(function (resolve, reject) {
+        // JSON.parse lève une erreur si on lui file du
+        // JSON invalide, donc ceci rejette implicitement :
+        resolve(JSON.parse("Trop pas du JSON"));
+    });
+
+jsonPromise.then(function (data) {
+    // Ceci n’arrive jamais :
+    console.log("Ça a marché !", data);
+}).catch(function (err) {
+    // En revanche, ceci arrive :
+    console.log("Ça a échoué !", err);
+});
+
+get('/').then(JSON.parse).then(function (data) {
+    // Ça n’arrive jamais, '/' est une page HTML, pas du JSON,
+    // donc JSON.parse lève une erreur
+    console.log("Ça a marché !", data);
+}).catch(function (err) {
+    // En revanche, ceci arrive :
+    console.log("Ça a échoué encore !", err);
+});
+</script>
+</body>
+</html>

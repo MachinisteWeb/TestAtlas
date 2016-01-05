@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Full example half order</title>
+</head>
+<body>
+    <div>Open console with F12</div>
+    <div class="spinner">En chargement...</div>
+<script src="./javascript/common.js"></script>
+<script>
+"use strict";
+
+var getJSON = this.getJSON,
+    addHtmlToPage = this.addHtmlToPage,
+    Promise = this.Promise;
+
+// Est rendu dans le bon ordre pour les chapitres mais pas pour la récupération globale.
+getJSON('datas/book.json').then(function (story) {
+    var sequence = Promise.resolve();
+
+    addHtmlToPage(story.title);
+
+    story.chapters.forEach(function (chapter) {
+        sequence = sequence.then(function () {
+            return getJSON(chapter);
+        }).then(function (chapter) {
+            addHtmlToPage(chapter.content);
+        });
+    });
+}).then(function () {
+    // Et on a tout fini !
+    addHtmlToPage("<div>Tout fini !</div>");
+}).catch(function (err) {
+    // Récupère toute erreur survenue en chemin
+    addHtmlToPage("Argh, cassé : " + err.message);
+}).then(function () {
+    // Toujours masquer le spinner
+    document.querySelector('.spinner').style.display = 'none';
+});
+</script>
+</body>
+</html>

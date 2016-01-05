@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Get</title>
+</head>
+<body>
+    Open console with F12
+<script src="./javascript/common.js"></script>
+<script>
+"use strict";
+
+var get = this.get;
+
+// Ok !
+get('datas/book.json').then(function (response) {
+    console.log("Succès !", response);
+}, function (error) {
+    console.error("Échec !", error);
+});
+
+// Erreur !
+get('datas/book.jso').then(function (response) {
+    console.log("Succès !", response);
+}, function (error) {
+    console.error("Échec !", error);
+});
+</script>
+</body>
+</html>

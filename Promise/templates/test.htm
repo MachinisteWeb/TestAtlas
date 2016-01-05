@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Test</title>
+</head>
+<body>
+    Open console with F12
+<script src="./javascript/common.js"></script>
+<script>
+"use strict";
+
+var Promise = this.Promise;
+
+var promise = new Promise(function (resolve, reject) {
+    resolve(1);
+});
+
+promise.then(function (val) {
+    console.log(val); // 1
+    return val + 2;
+}).then(function (val) {
+    console.log(val); // 3
+});
+</script>
+</body>
+</html>

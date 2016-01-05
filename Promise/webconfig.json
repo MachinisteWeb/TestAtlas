@@ -1,0 +1,19 @@
+{
+	"enableIndex": true,
+	"staticOptions": {
+        "maxAge": 0
+    },
+	"routes": {
+		"/get.html": "get.htm",
+		"/test.html": "test.htm",
+		"/json.html": "json.htm",
+		"/chain.html": "chain.htm",
+		"/catch.html": "catch.htm",
+		"/exception.html": "exception.htm",
+		"/error.html": "error.htm",
+		"/full.html": "full.htm",
+		"/half-order.html": "half-order.htm",
+		"/full-order.html": "full-order.htm",
+		"/full-order-speed.html": "full-order-speed.htm"
+	}
+}
