@@ -1,0 +1,13 @@
+{
+	"enableIndex": true,
+	"staticOptions": {
+        "maxAge": 0
+    },
+	"commonController": "common.js",
+	"routes": {
+		"/require.html": "require.htm",
+		"/import.html": "import.htm",
+		"/require-transpiler.html": "require-transpiler.htm",
+		"/import-transpiler.html": "import-transpiler.htm"
+	}
+}
