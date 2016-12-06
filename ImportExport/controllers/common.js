@@ -5,7 +5,7 @@ common.components = {};
 
 (function (publics) {
 
-    common.components.systemAtlas = require('../components/system-atlas');
+    common.components.systemAtlas = require('./modules/system-atlas');
 
     publics.changeVariation = function (params, mainCallback) {
         var variation = params.variation;
