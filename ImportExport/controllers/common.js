@@ -7,15 +7,15 @@ common.components = {};
 
     common.components.systemAtlas = require('./modules/system-atlas');
 
-    publics.changeVariation = function (params, mainCallback) {
-        var variation = params.variation;
+    publics.changeVariations = function (params, mainCallback) {
+        var variations = params.variations;
 
-        variation.common = variation.common || {};
-        variation.common.helloWorld = common.components.systemAtlas.helloWorld();
+        variations.common = variations.common || {};
+        variations.common.helloWorld = common.components.systemAtlas.helloWorld();
 
-        mainCallback(variation);
+        mainCallback(variations);
     };
 
 }(common));
 
-exports.changeVariation = common.changeVariation;
+exports.changeVariations = common.changeVariations;
