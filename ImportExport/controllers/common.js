@@ -7,13 +7,11 @@ common.components = {};
 
     common.components.systemAtlas = require('./modules/system-atlas');
 
-    publics.changeVariations = function (params, mainCallback) {
-        var variations = params.variations;
+    publics.changeVariations = function (next, locals) {
 
-        variations.common = variations.common || {};
-        variations.common.helloWorld = common.components.systemAtlas.helloWorld();
+        locals.common.helloWorld = common.components.systemAtlas.helloWorld();
 
-        mainCallback(variations);
+        next();
     };
 
 }(common));
