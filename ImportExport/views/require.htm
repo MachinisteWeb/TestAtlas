@@ -6,31 +6,29 @@
 	<body>
 		<?- common.helloWorld ?>
 		<p>Open F12 and check loading state</p>
-		<script src="javascript/vendor/system.js"></script>
+		<script src="javascripts/vendor/system.js"></script>
 		<script>
 			/* global System */
-			var simple;
-
 			System.config({
 				baseURL: "/"
 			});
 
-			System.import("javascript/require-example.js");
-			System.import("javascript/modules/simple.js").then(function(simple) {
+			System.import("javascripts/require-example.js");
+			System.import("javascripts/modules/simple.js").then(function(simple) {
   				console.log(simple("HTML", "Simple"));
 			});
-			System.import("javascript/modules/commonjs.js").then(function(commonjs) {
+			System.import("javascripts/modules/commonjs.js").then(function(commonjs) {
   				console.log(commonjs("HTML", "CommonJS"));
 			});
-			System.import("javascript/modules/amd.js").then(function(amd) {
+			System.import("javascripts/modules/amd.js").then(function(amd) {
   				console.log(amd("HTML", "AMD"));
 			});
-			System.import("javascript/modules/systemjs.js").then(function(systemjs) {
+			System.import("javascripts/modules/systemjs.js").then(function(systemjs) {
   				console.log(systemjs("HTML", "SystemJS"));
 			});
 			/*
 			// Error if ES6 not supported
-			System.import("javascript/modules/es.js").then(function(all) {
+			System.import("javascripts/modules/es.js").then(function(all) {
 				var es = all.default,
 					esNamedA = all.A,
 					B = all.B;

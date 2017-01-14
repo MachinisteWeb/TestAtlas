@@ -1,9 +1,9 @@
 {
-	"enableIndex": true,
+	"index": true,
 	"staticOptions": {
         "maxAge": 0
     },
-	"commonController": "common.js",
+	"controller": "common.js",
 	"routes": {
 		"/require.html": "require.htm",
 		"/import.html": "import.htm",

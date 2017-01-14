@@ -1,5 +1,5 @@
 {
-	"enableIndex": true,
+	"index": true,
 	"staticOptions": {
         "maxAge": 0
     },
