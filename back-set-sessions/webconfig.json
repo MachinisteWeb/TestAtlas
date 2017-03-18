@@ -1,0 +1,8 @@
+{
+    "controller": "common.js",
+    "routes": {
+        "/": {
+            "view": "index.htm"
+        }
+    }
+}

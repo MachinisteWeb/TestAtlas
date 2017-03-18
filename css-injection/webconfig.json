@@ -1,0 +1,9 @@
+{
+    "routes": {
+        "/": {
+            "view": "email.htm",
+            "output": "bienvenue.html",
+            "injectCss": "stylesheets/email.css"
+        }
+    }
+}

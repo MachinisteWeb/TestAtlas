@@ -1,0 +1,6 @@
+{
+    "stylus": true,
+    "routes": {
+        "/": "index.htm"
+    }
+}

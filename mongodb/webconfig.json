@@ -1,0 +1,17 @@
+{
+    "controller": "common.js",
+    "variation": "common.json",
+    "statics": "statics.json",
+    "routes": {
+        "/": {
+            "view": "index.htm",
+            "variation": "index.json",
+            "controller": "index.js"
+        }
+    },
+    "_mongodbConfig": {
+  		"host": "localhost",
+	  	"port": "27017",
+	  	"database": "demo"
+	}
+}
