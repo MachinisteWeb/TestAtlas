@@ -6,36 +6,38 @@ exports.setModules = function () {
 exports.setRoutes = function (next) {
 	var NA = this,
 		fs = NA.modules.fs,
-		cheerio = NA.modules.cheerio,
+		jsdom = NA.modules.jsdom,
 		async = NA.modules.async,
 		marked = NA.modules.marked,
 		route = NA.webconfig.routes;
 
-	fs.readFile("../../README.md", "utf-8", function (err, content) {
+	fs.readFile("../../node-atlas-gh-pages/README.en.md", "utf-8", function (err, content) {
 		if (err) {
 			new Error("README File not found.");
 			return next();
 		}
 
-		var dom = marked(content),
-			$ = cheerio.load(dom, { decodeEntities: false }),
+		var dom = new jsdom.JSDOM(marked(content)),
 			allRoutes = [];
 
-		$("h2").each(function () {
-			//
-			var $title = $(this);
-
+		Array.prototype.forEach.call(dom.window.document.getElementsByTagName("h2"), function (h2) {
 			allRoutes.push(function (nextRoute) {
+				var htmlElement = h2,
+					nextUntil = [],
+					until = true;
+				while (htmlElement = htmlElement.nextElementSibling) {
+					(until && htmlElement && !htmlElement.matches("h2")) ? nextUntil.push(htmlElement.outerHTML) : until = false;
+				}
 
-				fs.writeFile("assets/content/" + $title.attr("id") + ".htm", $title + $title.nextUntil("h2"), function () {
+				fs.writeFile("assets/content/" + h2.getAttribute("id") + ".htm", h2.outerHTML + nextUntil.join(''), function () {
 
 					if (route instanceof Array) {
 						route.push({
-							"url": "/" + $title.attr("id") + ".html",
+							"url": "/" + h2.getAttribute("id") + ".html",
 							"view": "content.htm"
 						});
-					} else {					
-						route["/" + $title.attr("id") + ".html"] = {
+					} else {
+						route["/" + h2.getAttribute("id") + ".html"] = {
 							"view": "content.htm"
 						};
 					}
@@ -46,9 +48,9 @@ exports.setRoutes = function (next) {
 		});
 
 		async.parallel(allRoutes, function() {
-		    next();
+			next();
 		});
-	});   
+	});
 };
 
 exports.changeVariations = function (next, locals) {

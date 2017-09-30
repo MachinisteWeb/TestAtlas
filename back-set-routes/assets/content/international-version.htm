@@ -1,0 +1,20 @@
+<h2 id="international-version">International Version</h2><h3 id="overview">Overview</h3><p>This repository contains:</p><ul>
+<li>API documentation of NodeAtlas. To generate it, execute command <code>node generate-doc-index.na</code> from root,</li>
+<li>all required files to generate the NodeAtlas official website. To generate it, execute command <code>node generate-website.na</code> from <code>src/</code> folder.</li>
+</ul><p>This documentation and website run without Node.js instance or other executable. Any HTTP server can run it, and in our case, it's GitHub that do the job with <code>gh-pages</code> system.</p><h3 id="run-the-website">Run the Website</h3><p>To test the website on your OS, just go to the <code>src</code> directory and run the CLI console like this:</p><pre><code class="lang-bash">$ cd &lt;/path/to/gh-pages-directory&gt;/src/
+</code></pre><p>and use the following command:</p><pre><code class="lang-bash">$ node generate-website.na
+</code></pre><p>The full website will run here:</p><ul>
+<li><em><a href="http://localhost/">http://localhost/</a></em></li>
+</ul><p><strong><em>Note:</em></strong></p><p><em>If you already have a web server on port 80, consider using:</em></p><pre><code class="lang-bash">$ node-atlas --httpPort 7777
+</code></pre><p><em>The page will be here:</em></p><ul>
+<li><em><a href="http://localhost:7777/">http://localhost:7777/</a></em></li>
+</ul><h3 id="update-the-website">Update the website</h3><p>To test the website on your OS, first put, in the same level of this project directory, a folder with the <code>git clone https://github.com/NodeAtlas/node-atlas.git</code> project.</p><pre><code>&lt;workspace&gt;
+├─ gh-pages/    &lt;-- Here is the current project
+│  └─ src/
+└─ node-atlas/  &lt;-- Here clone the `git clone https://github.com/NodeAtlas/node-atlas.git`
+</code></pre><p>just go to the <code>src/</code> directory</p><pre><code class="lang-bash">$ cd &lt;/path/to/gh-pages-directory&gt;/src/
+</code></pre><p>and run the CLI console like this:</p><pre><code class="lang-bash">$ node develop-website.na
+</code></pre><p><em>Pages will be here:</em></p><ul>
+<li><em><a href="http://localhost:7777/">http://localhost:7777/</a></em></li>
+<li><em><a href="http://localhost:7778/english/">http://localhost:7778/english/</a></em></li>
+</ul>

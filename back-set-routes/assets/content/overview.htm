@@ -1,0 +1,166 @@
+<h2 id="overview">Overview</h2><p>NodeAtlas is an MVC(2) JavaScript Server-Side Framework as an <a href="https://www.npmjs.com/package/node-atlas">npm module</a> (<a href="https://www.npmjs.com/package/node-atlas">node-atlas</a>) and designed to run with <a href="https://nodejs.org/">Node.js</a>. NodeAtlas allows you to:</p><ul>
+<li><p>Create, maintain and run internationalized websites without using a single JavaScript server file. That's it's perfect for beginners and for developing brand website or single web app with high performance quickly.</p>
+<blockquote>
+<p>Exemple : <a href="https://bruno.lesieur.name/">Simple Web Page</a></p>
+</blockquote>
+</li>
+<li><p>Create, maintain and document a set of assets HTML / CSS / JavaScript user interfaces to provide solid guidelines for the realization of website or webapp (i.e. for brands) on create serverless website (i.e. for GitHub Pages).</p>
+<blockquote>
+<p>Exemple : <a href="https://www.lesieur.name/doc-atlas/">Pages, Componants and Web Interface Documentation</a> or <a href="https://node-atlas.js.org/english/">the official NodeAtlas website</a>.</p>
+</blockquote>
+</li>
+<li><p>Develop Node.js internationalized websites, scalable <a href="https://nodejs.org/">Node.js</a> applications or distant APIs running of all sizes with server-based source code for high performance, indexability for SEO and W3C compliance. Distant REST APIs are also easy to create.</p>
+<blockquote>
+<p>Exemple : <a href="https://blog.lesieur.name/">Blog</a>, <a href="https://www.lesieur.name/">Portfolio</a> or <a href="https://www.lesieur.name/api/">Distant API</a></p>
+</blockquote>
+</li>
+</ul><h3 id="why-nodeatlas-">Why NodeAtlas?</h3><p>NodeAtlas is designed to create scalable websites and to allow front-end and back-end developers to embrace <a href="https://nodejs.org/en/">Node.js</a> and offer an easy learning curve.</p><p>Starting with a single HTML page,</p><ul>
+<li>then create other pages,</li>
+<li>then internationalize them,</li>
+<li>then minify/obfuscate/optimized your sources,</li>
+<li>then use preprocessor like <a href="http://stylus-lang.com/">Stylus</a>, <a href="http://lesscss.org/">Less</a> or <a href="https://pugjs.org/api/getting-started.html">Pug</a> easily,</li>
+<li>then use files for drive back-end part with code with hooks and <a href="http://expressjs.com/">Express</a>,</li>
+<li>then use <a href="https://socket.io/">Socket.IO</a> for server-side reactivity and real-time exchanges,</li>
+<li>then connect you to <a href="https://www.mysql.com/">MySQL</a>, <a href="https://www.mongodb.com/">MongoDB</a>, <a href="https://www.elastic.co/">ElasticSearch</a>...,</li>
+<li>then use <a href="https://vuejs.org/">Vue</a> or <a href="https://facebook.github.io/react/">React</a> for isomorphism and client-side reactivity,</li>
+<li>then be component-based and/or service-oriented with projects like <a href="https://github.com/Haeresis/ComponentAtlas">ComponentAtlas</a> and/or <a href="https://github.com/Haeresis/ApiAtlas">ApiAtlas</a>,</li>
+<li>then let your customer edit website itself with <a href="https://github.com/Haeresis/EditAtlas">EditAtlas</a></li>
+<li>then create plugins,</li>
+<li>then...</li>
+</ul><h3 id="and-what-about-others-javascript-frameworks-">And what about others JavaScript frameworks?</h3><p>In opposition to others client-side JavaScript frameworks like Vue, Angular or React, NodeAtlas run server-side and provide some real URLs by HTTP response. Websites are indexable and W3C compliant, that means each page is constructed by HTTP response and after by asynchronous (AJAX, Websocket...) mechanisms. So, NodeAtlas is not an alternative to others client-side JavaScript frameworks that only use <a href="https://nodejs.org/en/">Node.js</a> for use after <a href="https://www.npmjs.com/">npm</a>, <a href="http://jspm.io/">jspm</a>, <a href="http://gulpjs.com/">gulp</a>, etc. So, NodeAtlas is same as Sails or Meteor. And that means NodeAtlas is a substituent to PHP, Java or C# server-side. In the same way as <a href="https://www.meteor.com/">Meteor</a>, NodeAtlas allow you to set your working environment and you have not need of <a href="http://gulpjs.com/">gulp</a> but by an opposition of <a href="https://www.meteor.com/">Meteor</a>, the <code>NA</code> object is not provided client-side by default. It's your responsibility to spread server-side mechanism to client-side.</p><p>To comparate NodeAtlas with others JavaScript Server-side library / framework / API, <a href="#nodeatlas-vs-others">you could check this grid</a>.</p><h3 id="examples-of-websites-with-nodeatlas">Examples of websites with NodeAtlas</h3><p>You'll find a list of GitHub repositories provided by NodeAtlas community to analyze and understand how NodeAtlas works:</p><ul>
+<li><a href="https://github.com/NodeAtlas">All examples provided by NodeAtlas GitHub Communauty</a>.</li>
+</ul><h3 id="table-of-contents">Table of Contents</h3><ul>
+<li><a href="#overview">Overview</a><ul>
+<li><a href="#why-nodeatlas">Why NodeAtlas</a></li>
+<li><a href="#and-what-about-others-javascript-frameworks">And what about others JavaScript frameworks?</a></li>
+<li><a href="#examples-of-websites-with-nodeatlas">Examples of websites with NodeAtlas</a></li>
+<li><a href="#table-of-contents">Table of Contents</a></li>
+<li><a href="#documentation">Documentation</a></li>
+<li><a href="#contributing">Contributing</a></li>
+</ul>
+</li>
+<li><a href="#installing">Installing</a><ul>
+<li><a href="#install-nodeatlas">Install NodeAtlas</a></li>
+<li><a href="#install-nodejs">Install Node.js</a></li>
+</ul>
+</li>
+<li><a href="#start-with-nodeatlas">Start with NodeAtlas</a><ul>
+<li><a href="#fileset">Fileset</a></li>
+<li><a href="#minimum-requirements">Minimum Requirements</a></li>
+<li><a href="#run-the-site-with-nodeatlas">Run the site with NodeAtlas</a></li>
+<li><a href="#hello-world-skeleton">Hello World Skeleton</a></li>
+</ul>
+</li>
+<li><a href="#view-and-template-part">View and Template Part</a><ul>
+<li><a href="#more-one-page">More One Page</a></li>
+<li><a href="#manage-routes">Manage Routes</a></li>
+<li><a href="#host-images-fonts-css-js-etc">Host images, fonts, CSS, JS, etc.</a></li>
+<li><a href="#manage-include-of-partial-files">Manage Include of Partial Files</a></li>
+<li><a href="#manage-variations-within-the-same-view">Manage variations within the same view</a></li>
+<li><a href="#manage-internationalization-i18n">Manage Internationalization (i18n)</a></li>
+<li><a href="#manage-the-URLs-anatomy">Manage the URLs' anatomy</a></li>
+<li><a href="#create-your-own-webconfigs-variables">Create your own Webconfig's Variables</a></li>
+<li><a href="#use-a-global-view">Use a Global View</a></li>
+<li><a href="#share-directory">Share Directories</a></li>
+<li><a href="#generate-html-templates">Generate HTML Templates</a></li>
+<li><a href="#ejs-template-engine">EJS Template Engine</a></li>
+<li><a href="#pug-template-engine">Pug Template Engine</a></li>
+<li><a href="#vue-template-engine">Vue Template Engine</a></li>
+</ul>
+</li>
+<li><a href="#controller-and-model-part">Controller and Model Part</a><ul>
+<li><a href="#lifecycle-and-hooks">Lifecycle and Hooks</a></li>
+<li><a href="#use-reliable-client-server-real-time-with-websockets">Use Reliable Client-Server Real-Time with Websockets</a></li>
+<li><a href="#use-mysql-database-sql">Use MySQL Database (SQL)</a></li>
+<li><a href="#use-mongodb-database-nosql">Use MongoDB Database (NoSQL)</a></li>
+<li><a href="#use-middleware-from-express">Use Middlewares from Express</a></li>
+<li><a href="#create-isomorphic-app">Create Isomorphic App</a></li>
+</ul>
+</li>
+<li><a href="#more-features">More features</a><ul>
+<li><a href="#manage-routing-url-rewriting">Manage Routing (URL Rewriting)</a></li>
+<li><a href="#manage-a-page-not-found">Manage a Page Not Found</a></li>
+<li><a href="#inject-routes-dynamically">Inject Routes Dynamically</a></li>
+<li><a href="#manage-redirects">Manage redirects</a></li>
+<li><a href="#manage-headers">Manage Headers</a></li>
+<li><a href="#dynamic-configuration">Dynamic Configuration</a></li>
+<li><a href="#run-website-with-https">Run Website with HTTPs</a></li>
+<li><a href="#minify-css--js">Minify CSS / JS</a></li>
+<li><a href="#css-generation-with-less">CSS generation with Less</a></li>
+<li><a href="#css-generation-with-stylus">CSS generation with Stylus</a></li>
+<li><a href="#optimize-images-files">Optimize Images files</a></li>
+<li><a href="#css-inline-injection-for-manage-email-assets">CSS Inline Injection for Manage Email Assets</a></li>
+<li><a href="#allow--disallow-get--post-requests">Allow / Disallow GET / POST requests</a></li>
+<li><a href="#allow--disallow-put--delete-requests">Allow / Disallow PUT / DELETE requests</a></li>
+<li><a href="#manage-cors-and-options-requests">Manage CORS and OPTIONS requests</a></li>
+<li><a href="#change-settings-of-sessions">Change settings of Sessions</a></li>
+<li><a href="#external-storage-sessions">External Storage Sessions</a></li>
+<li><a href="#change-the-url-hostname-and-listening-port">Change the URL hostname and listening port</a></li>
+<li><a href="#generate-URLs-dynamically">Generate URLs dynamically</a></li>
+<li><a href="#custom-template-engine">Custom Template Engine</a></li>
+<li><a href="#no-view">No view</a></li>
+<li><a href="#enable-cache">Enable Cache</a></li>
+</ul>
+</li>
+<li><a href="#webconfigs-anatomy">Webconfig's Anatomy</a></li>
+<li><a href="#cli--running-commands">CLI / Running commands</a><ul>
+<li><a href="#--help">--help</a></li>
+<li><a href="#--version">--version</a></li>
+<li><a href="#--browse">--browse</a></li>
+<li><a href="#--path">--path</a></li>
+<li><a href="#--webconfig">--webconfig</a></li>
+<li><a href="#--httphostname">--httpHostname</a></li>
+<li><a href="#--httpport">--httpPort</a></li>
+<li><a href="#--generate">--generate</a></li>
+<li><a href="#--cache">--cache</a></li>
+<li><a href="#--create">--create</a></li>
+<li><a href="#--httpsecure">--httpSecure</a></li>
+<li><a href="#--lang">--lang</a></li>
+</ul>
+</li>
+<li><a href="#api--nodeatlas-as-npm-module">API / NodeAtlas as npm module</a><ul>
+<li><a href="#nastart">&lt;NA&gt;.start()</a></li>
+<li><a href="#nainitoptions">&lt;NA&gt;.init(options)</a></li>
+<li><a href="#narunoptions">&lt;NA&gt;.run(options)</a></li>
+<li><a href="#nastartedcallback">&lt;NA&gt;.started(callback)</a></li>
+<li><a href="#nastoppedcallback">&lt;NA&gt;.stopped(callback)</a></li>
+<li><a href="#nageneratedcallback">&lt;NA&gt;.generated(callback)</a></li>
+<li><a href="#nacreatedcallback">&lt;NA&gt;.created(callback)</a></li>
+</ul>
+</li>
+<li><a href="#nodeatlas-as-a-simple-web-server">NodeAtlas as a simple web server</a></li>
+<li><a href="#development-environment">Development Environment</a><ul>
+<li><a href="#front-end-debug">Front-end Debug</a></li>
+<li><a href="#back-end-debug">Back-end Debug</a></li>
+<li><a href="#devices-tests">Devices Tests</a></li>
+<li><a href="#hot-reloading">Hot Reloading</a></li>
+</ul>
+</li>
+<li><a href="#production-environment">Production Environment</a><ul>
+<li><a href="#in-a-windows-server-environment-with-iisnode">In a Windows Server environment with iisnode</a></li>
+<li><a href="#in-a-unix-environment-with-forever">In a Unix environment with forever</a></li>
+<li><a href="#in-a-unix-environment-with-nginx">In a Unix environment with Nginx</a></li>
+<li><a href="#proxy">Proxy</a></li>
+</ul>
+</li>
+<li><a href="#more-about-nodeatlas">More About NodeAtlas</a><ul>
+<li><a href="#nodeatlas-vs-others">NodeAtlas VS Others</a></li>
+</ul>
+</li>
+</ul><h3 id="documentation">Documentation</h3><p>In addition to this documentation, you also have access to,</p><ul>
+<li><a href="https://www.npmjs.com/package/node-atlas">tl;dr</a>,</li>
+<li><a href="https://node-atlas.js.org/doc/node-atlas/">details of functions in the NA object</a> and you could</li>
+<li><a href="https://gitter.im/NodeAtlas/Help">discuss on chat and ask assistance for NodeAtlas</a>.</li>
+</ul><h3 id="contributing">Contributing</h3><p>If you would like to contribute with:</p><ul>
+<li>Code enhancements and fixes,</li>
+<li>French correct spelling mistake or</li>
+<li>Decent English translation</li>
+</ul><p>Please do the following:</p><ol>
+<li>Fork the NodeAtlas repository.</li>
+<li>Hack on a separate topic branch created from the latest master.</li>
+<li>Commit and push the topic branch.</li>
+<li>Make a pull request.</li>
+<li>Be patient. ;-)</li>
+</ol><p>Please note that modifications should follow these coding guidelines:</p><ul>
+<li><a href="http://www.sonarqube.org/">Pass Sonarqube JS with rank A</a> : Bugs, Vulnerabilities, and Debt Ratio.</li>
+</ul><p>Thank you for helping out!</p>
