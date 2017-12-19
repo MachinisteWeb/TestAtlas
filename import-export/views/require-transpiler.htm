@@ -13,30 +13,30 @@
 				baseURL: "/",
 				transpiler: "traceur",
 				map: {
-    				traceur: "javascripts/vendor/traceur.js"
-  				}
+					traceur: "javascripts/vendor/traceur.js"
+				}
 			});
 
 			System.import("javascripts/require-transpiler-example.js");
 			System.import("javascripts/modules/simple.js").then(function(simple) {
-  				console.log(simple("HTML", "Simple"));
+				console.log(simple("HTML", "Simple"));
 			});
 			System.import("javascripts/modules/commonjs.js").then(function(commonjs) {
-  				console.log(commonjs("HTML", "CommonJS"));
+				console.log(commonjs("HTML", "CommonJS"));
 			});
 			System.import("javascripts/modules/amd.js").then(function(amd) {
-  				console.log(amd("HTML", "AMD"));
+				console.log(amd("HTML", "AMD"));
 			});
 			System.import("javascripts/modules/systemjs.js").then(function(systemjs) {
-  				console.log(systemjs("HTML", "SystemJS"));
+				console.log(systemjs("HTML", "SystemJS"));
 			});
 			System.import("javascripts/modules/es.js").then(function(all) {
 				var es = all.default,
 					esNamedA = all.A,
 					B = all.B;
-  				console.log(es("HTML", "ES Default"));
-  				console.log(esNamedA("HTML", "ES Named A"));
-  				console.log(B("HTML", "ES Named B"));
+				console.log(es("HTML", "ES Default"));
+				console.log(esNamedA("HTML", "ES Named A"));
+				console.log(B("HTML", "ES Named B"));
 			});
 		</script>
 	</body>

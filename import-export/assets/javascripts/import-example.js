@@ -1,6 +1,5 @@
 /*jshint esversion: 6 */
 
-/*
 // Error if ES6 not supported
 import commonjs from "javascripts/modules/commonjs.js";
 import amd from "javascripts/modules/amd.js";
@@ -17,4 +16,3 @@ console.log(systemjs("JS", "SystemJS"));
 console.log(es("JS", "ES Default"));
 console.log(esNamedA("JS", "ES Named A"));
 console.log(B("JS", "ES Named B"));
-*/
