@@ -1,0 +1,22 @@
+{
+	"_title": "Total.js",
+	"view": "layout.html",
+	"routes": {
+		"/": {
+			"view": "index.html",
+			"_title": "Full website example"
+		},
+		"/services/": {
+			"view": "services.html",
+			"_title": "Services"
+		},
+		"/references/": {
+			"view": "references.html",
+			"_title": "References"
+		},
+		"/contact/": {
+			"view": "contact.html",
+			"_title": "Contact"
+		}
+	}
+}
