@@ -12,8 +12,8 @@ exports.changeVariations = function (next, locals, request, response) {
     console.log("urlSubPath", locals.urlSubPath); // "/example"
     console.log("urlBasePath", locals.urlBasePath); // "http://localhost/example"
     console.log("urlFilePath", locals.urlFilePath); // "/"
-    console.log("urlQueryPath", locals.urlQueryPath); // "?title=Haeresis"
-    console.log("urlPath", locals.urlPath); // "http://localhost/example/?title=Haeresis"
+    console.log("urlQueryPath", locals.urlQueryPath); // "?title=MachinisteWeb"
+    console.log("urlPath", locals.urlPath); // "http://localhost/example/?title=MachinisteWeb"
 
     if (request.query["title"]) {
         locals.specific.titlePage = locals.specific.titlePage + " " + request.query.title;
@@ -23,7 +23,7 @@ exports.changeVariations = function (next, locals, request, response) {
     }
     
     console.log(locals.common.titleWebsite); // "Titre du site"
-    console.log(locals.specific.titlePage); // "Bienvenue Haeresis"
+    console.log(locals.specific.titlePage); // "Bienvenue MachinisteWeb"
     console.log(locals.specific.content); // "Ceci est un test"
 
     // On passe à la suite modifications.

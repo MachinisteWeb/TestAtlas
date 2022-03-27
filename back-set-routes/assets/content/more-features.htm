@@ -272,7 +272,7 @@ exports.setRoutes = function (next) {
         }
     }
 }
-</code></pre><p>You will be redirected to <code>http://localhost/list-of-members/haeresis/</code> when you access to <code>http://localhost/list-of-members/haeresis</code> with a header <em>permanent redirect</em>.</p><h4 id="with-regular-expressions">With regular expressions</h4><p>See the example below:</p><pre><code class="lang-js">{
+</code></pre><p>You will be redirected to <code>http://localhost/list-of-members/machinisteweb/</code> when you access to <code>http://localhost/list-of-members/machinisteweb</code> with a header <em>permanent redirect</em>.</p><h4 id="with-regular-expressions">With regular expressions</h4><p>See the example below:</p><pre><code class="lang-js">{
     "routes": {
         "/membres/([-a-z0-9]+)/": {
             "view": "members.htm",
@@ -291,7 +291,7 @@ exports.setRoutes = function (next) {
         }
     }
 }
-</code></pre><p>You will be redirected to <code>http://localhost/list-of-members/haeresis/</code> when you access to <code>http://localhost/list-of-members/haeresis</code> with a header <em>permanent redirect</em>.</p><p>For the second <em>match</em> use $1, the third $2, etc.</p><h3 id="manage-headers">Manage Headers</h3><p>By défault, sent Headers by NodeAtlas are followings: <code>Content-Type:text/html; charset=utf-8</code> with a 200 <code>statusCode</code>.</p><p>It's possible to modify this values for a specific route (for local API for example).</p><pre><code class="lang-json">{
+</code></pre><p>You will be redirected to <code>http://localhost/list-of-members/machinisteweb/</code> when you access to <code>http://localhost/list-of-members/machinisteweb</code> with a header <em>permanent redirect</em>.</p><p>For the second <em>match</em> use $1, the third $2, etc.</p><h3 id="manage-headers">Manage Headers</h3><p>By défault, sent Headers by NodeAtlas are followings: <code>Content-Type:text/html; charset=utf-8</code> with a 200 <code>statusCode</code>.</p><p>It's possible to modify this values for a specific route (for local API for example).</p><pre><code class="lang-json">{
     "mimeType": "application/json",
     "charset": "utf-16",
     "routes": {
